@@ -13,11 +13,21 @@ This database class is beginner-friendly and easy to implement, with the native 
 lines of code to retrieve data from a database, with this class you can do it with just 1-2 lines of code, and is much
 easier to understand.
 
-# Source
 
-Download the file `db.php`. It contains the client class named `db`.
+# Let's Start!
+
+The database class uses the MySQLi extension, this is built into PHP version >= 5.0.0. If you're using PHP version 5.0.0 to 5.3.0 you'll need install: mysqlnd.
+
+No need to prepare statements using this class, it'll do that for you automatically (write less, do more), your queries will be secure, just remember to make sure you escape your output using `htmlspecialchars` PHP function, or your preferred escaping method.
+
+PS: The transactions query aren't yet supported on this class.
 
 # How To Use
+
+## Download the source file
+
+Download the file `db.php`. It contains the client PHP class named `db`.
+
 
 ## Connect to MySQL database:
 
@@ -68,6 +78,21 @@ If you need to break the loop you can add:
 
 ```php
 return 'break';
+```
+
+## Update a record:
+
+```php
+$Update_Password = $db->query('UPDATE accounts SET password = ? WHERE username = ?', 'newpass', 'test');
+```
+
+And you can check if the action was success or fail by doing the following:
+```php
+if($Update_Password) {
+    // Success
+} else {
+    // Failure
+}
 ```
 
 ## Get the number of rows:
