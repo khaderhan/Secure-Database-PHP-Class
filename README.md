@@ -1,4 +1,4 @@
-# Secure-Database-PHP-Class
+# Secure Database PHP Class
 
 A PHP MySQL database client class to simplify database access.
 
